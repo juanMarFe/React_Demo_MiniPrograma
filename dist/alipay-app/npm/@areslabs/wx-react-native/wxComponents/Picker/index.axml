@@ -1,0 +1,24 @@
+<view class='Picker-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <import-sjs from='../commonwxs.sjs' name='tools'>
+  </import-sjs>
+  <template name='picker'>
+    <picker-view indicator-style='height: 50px' style='position: absolute; height: {{itemLength * 50}}px; width: 100%' value='{{seleIndex}}' onChange='onValueChange'>
+      <picker-view-column>
+        <block a:for='{{childrenData}}' a:key='{{key}}' ref-numbers='{{childrenData}}'>
+          <childrenCPT diuu='{{item.childrenDIUU}}' a:if='{{item.childrenDIUUstyle !== false}}' style='{{tools.getFinalStyle(item.childrenDIUUstyle)}}; line-height: 50px;'>
+          </childrenCPT>
+        </block>
+      </picker-view-column>
+    </picker-view>
+  </template>
+  <block a:for='{{ [ ..._r ] }}' a:for-item='amitem' a:for-index='amindex' _is='picker' ref-numbers='{{ [ ..._r ] }}'>
+    <picker-view indicator-style='height: 50px' style='position: absolute; height: {{itemLength * 50}}px; width: 100%' value='{{seleIndex}}' onChange='onValueChange'>
+      <picker-view-column>
+        <block a:for='{{childrenData}}' a:key='{{key}}' ref-numbers='{{childrenData}}'>
+          <childrenCPT diuu='{{item.childrenDIUU}}' a:if='{{item.childrenDIUUstyle !== false}}' style='{{tools.getFinalStyle(item.childrenDIUUstyle)}}; line-height: 50px;'>
+          </childrenCPT>
+        </block>
+      </picker-view-column>
+    </picker-view>
+  </block>
+</view>

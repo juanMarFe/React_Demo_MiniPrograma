@@ -1,0 +1,22 @@
+<view class='ScrollView-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <block a:if='{{!horizontal}}'>
+    <scroll-view scroll-y=" " scroll-with-animation='{{withAni}}' scroll-left='{{outLeft}}' scroll-top='{{outTop}}' style='flex: 1; flex-basis: 0%;overflow:hidden;' onScroll='outScroll' onTouchStart='antmoveAction' data-antmove-touchstart='startTouch' onTouchEnd='antmoveAction' data-antmove-touchend='leaveTouch'>
+      <view class='scroll-area' style='{{contentContainerStyle}}min-height: 100%;'>
+        <slot>
+        </slot>
+      </view>
+      <view id='above' class='ball' style='width: 1px; height: 1px; visibility: hidden; position: absolute; top: {{contentHeight - 1}}px;'>
+      </view>
+      <view id='below' class='ball' style='width: 1px; height: 1px; visibility: hidden; position: absolute; top: {{contentHeight + 1}}px;'>
+      </view>
+    </scroll-view>
+  </block>
+  <block a:else >
+    <scroll-view scroll-x=" " scroll-with-animation='{{withAni}}' scroll-left='{{outLeft}}' scroll-top='{{outTop}}' style='flex: 1; flex-basis: 0%;overflow:hidden; height: 100%;' onScroll='outScroll' onTouchStart='antmoveAction' data-antmove-touchstart='startTouch' onTouchEnd='antmoveAction' data-antmove-touchend='leaveTouch'>
+      <view style='{{contentContainerStyle}}flex-direction:row;flex: 1; flex-basis: 0%;height: 100%'>
+        <slot>
+        </slot>
+      </view>
+    </scroll-view>
+  </block>
+</view>

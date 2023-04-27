@@ -1,0 +1,68 @@
+<view class='SectionList-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <import-sjs from='../commonwxs.sjs' name='tools'>
+  </import-sjs>
+  <template name='sectionList'>
+    <scroll-view scroll-y=" " scroll-top='{{onRefreshPassed ? (sr ? 0: 80) : 0}}' upper-threshold='3' scroll-with-animation='{{withAni}}' scroll-left='{{outLeft}}' style='flex: 1; flex-basis: 0%;overflow:hidden;' lower-threshold='{{onEndReachedThreshold}}' onScrollToUpper='onScrollToupper' onScrollToLower='onEndReached' onScroll='outScroll' onTouchStart='antmoveAction' data-antmove-touchstart='startTouch' onTouchEnd='antmoveAction' data-antmove-touchend='leaveTouch'>
+      <view id='container' style='{{contentContainerStyle}}min-height: calc(100% + {{onRefreshPassed ? 80 : 0}}px)'>
+        <view a:if='{{onRefreshPassed}}' style='height:80px;align-items:center;justify-content:center;'>
+          <view class='loading'>
+          </view>
+        </view>
+        <block a:if='{{ListHeaderComponent && ListHeaderComponent._generic}}'>
+          <_g diuu='{{ListHeaderComponent._generic}}' style='{{tools.getFinalStyle(ListHeaderComponent._genericstyle)}}'>
+          </_g>
+        </block>
+        <block a:for='{{sections}}' a:key='{{key}}' ref-numbers='{{sections}}'>
+          <block a:if='{{item.renderSectionHeader && item.renderSectionHeader._generic}}'>
+            <_g diuu='{{item.renderSectionHeader._generic}}' style='{{tools.getFinalStyle(item.renderSectionHeader._genericstyle)}}'>
+            </_g>
+          </block>
+          <block a:for='{{item.renderItem}}' a:key='{{key}}' ref-numbers='{{item.renderItem}}'>
+            <_g diuu='{{item._generic}}' style='{{tools.getFinalStyle(item._genericstyle)}}'>
+            </_g>
+          </block>
+          <block a:if='{{item.renderSectionFooter && item.renderSectionFooter._generic}}'>
+            <_g diuu='{{item.renderSectionFooter._generic}}' style='{{tools.getFinalStyle(item.renderSectionFooter._genericstyle)}}'>
+            </_g>
+          </block>
+        </block>
+        <block a:if='{{ListFooterComponent && ListFooterComponent._generic}}'>
+          <_g diuu='{{ListFooterComponent._generic}}' style='{{tools.getFinalStyle(ListFooterComponent._genericstyle)}}'>
+          </_g>
+        </block>
+      </view>
+    </scroll-view>
+  </template>
+  <block a:for='{{ [{ ..._r, withAni, outLeft, sr }] }}' a:for-item='amitem' a:for-index='amindex' _is='sectionList' ref-numbers='{{ [{ ..._r, withAni, outLeft, sr }] }}'>
+    <scroll-view scroll-y=' ' scroll-top='{{onRefreshPassed ? (amitem.sr ? 0: 80) : 0}}' upper-threshold='3' scroll-with-animation='{{amitem.withAni}}' scroll-left='{{amitem.outLeft}}' style='flex: 1; flex-basis: 0%;overflow:hidden;' lower-threshold='{{onEndReachedThreshold}}' onScrollToUpper='onScrollToupper' onScrollToLower='onEndReached' onScroll='outScroll' onTouchStart='antmoveAction' data-antmove-touchstart='startTouch' onTouchEnd='antmoveAction' data-antmove-touchend='leaveTouch'>
+      <view id='container' style='{{contentContainerStyle}}min-height: calc(100% + {{onRefreshPassed ? 80 : 0}}px)'>
+        <view a:if='{{onRefreshPassed}}' style='height:80px;align-items:center;justify-content:center;'>
+          <view class='loading'>
+          </view>
+        </view>
+        <block a:if='{{ListHeaderComponent && ListHeaderComponent._generic}}'>
+          <_g diuu='{{ListHeaderComponent._generic}}' style='{{tools.getFinalStyle(ListHeaderComponent._genericstyle)}}'>
+          </_g>
+        </block>
+        <block a:for='{{sections}}' a:key='{{key}}' ref-numbers='{{sections}}'>
+          <block a:if='{{item.renderSectionHeader && item.renderSectionHeader._generic}}'>
+            <_g diuu='{{item.renderSectionHeader._generic}}' style='{{tools.getFinalStyle(item.renderSectionHeader._genericstyle)}}'>
+            </_g>
+          </block>
+          <block a:for='{{item.renderItem}}' a:key='{{key}}' ref-numbers='{{item.renderItem}}'>
+            <_g diuu='{{item._generic}}' style='{{tools.getFinalStyle(item._genericstyle)}}'>
+            </_g>
+          </block>
+          <block a:if='{{item.renderSectionFooter && item.renderSectionFooter._generic}}'>
+            <_g diuu='{{item.renderSectionFooter._generic}}' style='{{tools.getFinalStyle(item.renderSectionFooter._genericstyle)}}'>
+            </_g>
+          </block>
+        </block>
+        <block a:if='{{ListFooterComponent && ListFooterComponent._generic}}'>
+          <_g diuu='{{ListFooterComponent._generic}}' style='{{tools.getFinalStyle(ListFooterComponent._genericstyle)}}'>
+          </_g>
+        </block>
+      </view>
+    </scroll-view>
+  </block>
+</view>

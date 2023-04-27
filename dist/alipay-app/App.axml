@@ -1,0 +1,13 @@
+<view class='wx-dist-App {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <import-sjs from='./commonwxs.sjs' name='_t'>
+  </import-sjs>
+  <template name='b'>
+    <view class='view page-container' style='{{_t.s(b_style)}}'>
+      <view style='{{_t.s(c_style)}}' class='text'>
+        Hello, world!
+      </view>
+    </view>
+  </template>
+  <template a:if='{{(_r && _r.tempName)}}' is='{{_r.tempName}}' data='{{..._r}}'>
+  </template>
+</view>

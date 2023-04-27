@@ -1,0 +1,4 @@
+<view class='WebView-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <web-view src='{{source.uri}}' onMessage='onMyMessage'>
+  </web-view>
+</view>

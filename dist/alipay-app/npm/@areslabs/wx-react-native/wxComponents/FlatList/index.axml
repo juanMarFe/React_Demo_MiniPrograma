@@ -1,0 +1,90 @@
+<view class='FlatList-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <import-sjs from="./index.axmlmethods.sjs" name='methods'>
+  </import-sjs>
+  <import-sjs from='../commonwxs.sjs' name='tools'>
+  </import-sjs>
+  <template name='flatList'>
+    <scroll-view scroll-y='{{horizontal ? false : true}}' scroll-x='{{horizontal ? true : false}}' scroll-top='{{(onRefreshPassed && !horizontal) ? (sr ? 0: 80) : 0}}' upper-threshold='3' scroll-with-animation='{{withAni}}' scroll-left='{{outLeft}}' style='flex: 1; flex-basis: 0%;overflow:hidden;' lower-threshold='{{100}}' scroll-into-view='{{index_id}}' onScrollToUpper='onScrollToupper' onScrollToLower='onEndReached' onScroll='outScroll' onTouchStart='antmoveAction' data-antmove-touchstart='startTouch' onTouchEnd='antmoveAction' data-antmove-touchend='leaveTouch'>
+      <view id='container' style="{{contentContainerStyle}}{{horizontal ? 'display: inline-block;white-space: nowrap;vertical-align: middle;' : ''}}min-height: calc(100% + {{onRefreshPassed ? 80 : 0}}px)">
+        <view a:if='{{onRefreshPassed && !horizontal}}' style='height:80px;align-items:center;justify-content:center;'>
+          <view class='loading'>
+          </view>
+        </view>
+        <block a:if='{{ListHeaderComponent && ListHeaderComponent._generic}}'>
+          <_g diuu='{{ListHeaderComponent._generic}}' style="{{tools.getFinalStyle(ListHeaderComponent._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+          </_g>
+        </block>
+        <block a:if='{{ListEmptyComponent && ListEmptyComponent._generic}}'>
+          <_g diuu='{{ListEmptyComponent._generic}}' style="{{tools.getFinalStyle(ListEmptyComponent._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+          </_g>
+        </block>
+        <block a:if='{{numColumns >= 2}}'>
+          <view style="display: flex; flex-direction: row; justify-content: flex-start; flex-wrap: wrap;{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+            <view a:for='{{renderItem}}' a:key='{{key}}' style='width: {{100 / numColumns}}%' ref-numbers='{{renderItem}}'>
+              <_g id='id_{{index}}' diuu='{{item._generic}}' style='{{tools.getFinalStyle(item._genericstyle)}};'>
+              </_g>
+            </view>
+          </view>
+        </block>
+        <block a:else >
+          <block a:for='{{renderItem}}' a:key='{{key}}' ref-numbers='{{renderItem}}'>
+            <view a:if='{{methods.ArrayContains(stickyHeaderIndices,index)}}' style="{{sti['stickyContainerStyle'+index]}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+              <_g id='id_{{index}}' diuu='{{item._generic}}' style="{{tools.getFinalStyle(item._genericstyle)}}{{sti['stickyStyle'+index]}}">
+              </_g>
+            </view>
+            <block a:else >
+              <_g id='id_{{index}}' diuu='{{item._generic}}' style="{{tools.getFinalStyle(item._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+              </_g>
+            </block>
+          </block>
+        </block>
+        <block a:if='{{ListFooterComponent && ListFooterComponent._generic}}'>
+          <_g diuu='{{ListFooterComponent._generic}}' style="{{tools.getFinalStyle(ListFooterComponent._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+          </_g>
+        </block>
+      </view>
+    </scroll-view>
+  </template>
+  <block a:for='{{ [{ ..._r, withAni, outLeft, index_id, sr, sti }] }}' a:for-item='amitem' a:for-index='amindex' _is='flatList' ref-numbers='{{ [{ ..._r, withAni, outLeft, index_id, sr, sti }] }}'>
+    <scroll-view scroll-y='{{horizontal ? false : true}}' scroll-x='{{horizontal ? true : false}}' scroll-top='{{(onRefreshPassed && !horizontal) ? (amitem.sr ? 0: 80) : 0}}' upper-threshold='3' scroll-with-animation='{{amitem.withAni}}' scroll-left='{{amitem.outLeft}}' style='flex: 1; flex-basis: 0%;overflow:hidden;' lower-threshold='{{100}}' scroll-into-view='{{amitem.index_id}}' onScrollToUpper='onScrollToupper' onScrollToLower='onEndReached' onScroll='outScroll' onTouchStart='antmoveAction' data-antmove-touchstart='startTouch' onTouchEnd='antmoveAction' data-antmove-touchend='leaveTouch'>
+      <view id='container' style="{{contentContainerStyle}}{{horizontal ? 'display: inline-block;white-space: nowrap;vertical-align: middle;' : ''}}min-height: calc(100% + {{onRefreshPassed ? 80 : 0}}px)">
+        <view a:if='{{onRefreshPassed && !horizontal}}' style='height:80px;align-items:center;justify-content:center;'>
+          <view class='loading'>
+          </view>
+        </view>
+        <block a:if='{{ListHeaderComponent && ListHeaderComponent._generic}}'>
+          <_g diuu='{{ListHeaderComponent._generic}}' style="{{tools.getFinalStyle(ListHeaderComponent._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+          </_g>
+        </block>
+        <block a:if='{{ListEmptyComponent && ListEmptyComponent._generic}}'>
+          <_g diuu='{{ListEmptyComponent._generic}}' style="{{tools.getFinalStyle(ListEmptyComponent._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+          </_g>
+        </block>
+        <block a:if='{{numColumns >= 2}}'>
+          <view style="display: flex; flex-direction: row; justify-content: flex-start; flex-wrap: wrap;{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+            <view a:for='{{renderItem}}' a:key='{{key}}' style='width: {{100 / numColumns}}%' ref-numbers='{{renderItem}}'>
+              <_g id='id_{{index}}' diuu='{{item._generic}}' style='{{tools.getFinalStyle(item._genericstyle)}};'>
+              </_g>
+            </view>
+          </view>
+        </block>
+        <block a:else >
+          <block a:for='{{renderItem}}' a:key='{{key}}' ref-numbers='{{renderItem}}'>
+            <view a:if='{{methods.ArrayContains(stickyHeaderIndices,index)}}' style="{{amitem.sti['stickyContainerStyle'+index]}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+              <_g id='id_{{index}}' diuu='{{item._generic}}' style="{{tools.getFinalStyle(item._genericstyle)}}{{amitem.sti['stickyStyle'+index]}}">
+              </_g>
+            </view>
+            <block a:else >
+              <_g id='id_{{index}}' diuu='{{item._generic}}' style="{{tools.getFinalStyle(item._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+              </_g>
+            </block>
+          </block>
+        </block>
+        <block a:if='{{ListFooterComponent && ListFooterComponent._generic}}'>
+          <_g diuu='{{ListFooterComponent._generic}}' style="{{tools.getFinalStyle(ListFooterComponent._genericstyle)}}{{horizontal ? 'display: inline-block;vertical-align: middle;' : ''}}">
+          </_g>
+        </block>
+      </view>
+    </scroll-view>
+  </block>
+</view>

@@ -1,0 +1,2 @@
+<view class='ActivityIndicator-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+</view>

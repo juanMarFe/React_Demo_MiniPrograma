@@ -1,0 +1,1 @@
+var _my=require("../../../../../__antmove/api/index.js")(my);var wx=_my;Component(wx.__bridge.reactCompHelper({properties:{disabled:{type:Boolean,value:false},color:{type:String,value:""},title:{type:String,value:""}},methods:{innerPress:function innerPress(){if(this.data.disabled)return;this.data.onPress&&this.data.onPress();}}}));

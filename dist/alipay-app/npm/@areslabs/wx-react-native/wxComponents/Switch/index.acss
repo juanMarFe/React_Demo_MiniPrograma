@@ -1,0 +1,4 @@
+.Switch-index {
+    display: block;
+    height: initial;
+}

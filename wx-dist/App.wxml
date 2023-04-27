@@ -1,0 +1,1 @@
+<wxs src="./commonwxs.wxs" module="_t" /> <template name="b"> <view class="view page-container" style="{{_t.s(b_style)}}"> <view style="{{_t.s(c_style)}}" class="text">Hello, world!</view> </view> </template> <template wx:if="{{(_r && _r.tempName)}}" is="{{_r.tempName}}" data="{{..._r}}"/> 

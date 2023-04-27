@@ -1,0 +1,12 @@
+<view class='TextInput-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <import-sjs from="./index.axmlmethods.sjs" name='methods'>
+  </import-sjs>
+  <block a:if='{{multiline!=true}}'>
+    <custom-input class='APP_InnerContainer' auto-height='true' placeholder='{{placeholder}}' focus='{{focusFlag || autoFocus}}' value='{{value || defaultValue}}' disabled='{{!editable}}' type='{{methods.solveKeyboardType(keyboardType)}}' maxlength='{{maxLength}}' placeholder-style='{{methods.solvePlaceholderTextColor(placeholderTextColor)}}' onBlur='inneronblur' onInput='inneronInput' onFocus='inneronFocus'>
+    </custom-input>
+  </block>
+  <block a:else >
+    <textarea class='APP_InnerContainer' auto-height='true' placeholder='{{placeholder}}' focus='{{focusFlag || autoFocus}}' value='{{value || defaultValue}}' disabled='{{!editable}}' type='{{methods.solveKeyboardType(keyboardType)}}' maxlength='{{maxLength}}' placeholder-style='{{methods.solvePlaceholderTextColor(placeholderTextColor)}}' onFocus='inneronFocus' onBlur='inneronblur' onInput='inneronInput'>
+    </textarea>
+  </block>
+</view>

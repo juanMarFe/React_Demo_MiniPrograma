@@ -1,0 +1,6 @@
+{
+	"component": true,
+	"usingComponents": { "_e": "App", "App": "App" },
+	"componentGenerics": { "_g": true },
+	"disableScroll": true
+}

@@ -1,0 +1,6 @@
+<view class='Slider-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <import-sjs from="./index.axmlmethods.sjs" name='methods'>
+  </import-sjs>
+  <slider max='{{methods.maximumValue(maximumValue)}}' min='{{methods.minimumValue(minimumValue)}}' step='{{methods.step(step) ? methods.step(step) : 1}}' value='{{methods.value(value)}}' disabled='{{disabled}}' selected-color='{{minimumTrackTintColor}}' onChange='onSlidingComplete' background-color='{{maximumTrackTintColor}}' active-color='{{minimumTrackTintColor}}' onChanging='onValueChange'>
+  </slider>
+</view>

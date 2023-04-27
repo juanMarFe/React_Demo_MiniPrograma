@@ -1,0 +1,2 @@
+@import "./pageCommon.acss";
+@import "./compCommon.acss";

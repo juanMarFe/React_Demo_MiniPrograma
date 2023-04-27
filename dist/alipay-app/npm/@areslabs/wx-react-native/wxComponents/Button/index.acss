@@ -1,0 +1,21 @@
+.Button-index {
+    display: block;
+    height: initial;
+}
+.Button-index .container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+    color: #0c42fd;
+    margin: 0;
+    font-size: 18px;
+    padding: 8px;
+    line-height: 1.2;
+    position: relative;
+}
+
+.Button-index .hc {
+    opacity: 0.2;
+}

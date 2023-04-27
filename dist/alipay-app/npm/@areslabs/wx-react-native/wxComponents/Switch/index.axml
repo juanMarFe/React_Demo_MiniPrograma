@@ -1,0 +1,4 @@
+<view class='Switch-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <switch color='{{tintColor}}' checked='{{value}}' onChange='onValueChange'>
+  </switch>
+</view>

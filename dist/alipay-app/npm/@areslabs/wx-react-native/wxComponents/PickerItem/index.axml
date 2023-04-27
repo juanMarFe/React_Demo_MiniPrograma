@@ -1,0 +1,3 @@
+<view class='PickerItem-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  {{label}}
+</view>

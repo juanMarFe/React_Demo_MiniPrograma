@@ -1,0 +1,4 @@
+<view class='Modal-index {{className}}' style='{{style}}' ref='saveChildRef0'>
+  <slot>
+  </slot>
+</view>

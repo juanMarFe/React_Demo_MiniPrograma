@@ -1,0 +1,4 @@
+.Picker-index {
+    display: block;
+    height: initial;
+}

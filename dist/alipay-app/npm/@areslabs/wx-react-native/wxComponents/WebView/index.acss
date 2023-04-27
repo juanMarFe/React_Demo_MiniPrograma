@@ -1,0 +1,4 @@
+.WebView-index {
+    display: block;
+    height: initial;
+}
